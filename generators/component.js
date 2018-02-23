@@ -23,6 +23,13 @@ exports.generate = function(name) {
 
   function generateDirectory() {
     var expectedDir = location + name;
+
+    fs.stat(location, function(err, stats) {
+      if (stats === undefined) {
+        fs.mkdir(location, function(){});
+      }
+    });
+
     fs.stat(expectedDir, function(err, stats) {
       if (stats === undefined) {
         fs.mkdir(expectedDir);
