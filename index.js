@@ -1,9 +1,8 @@
 #!/usr/bin/env node --harmony
 var program = require('commander');
 var chalk = require('chalk');
-var availableTypes = ['controller', 'component', 'directive', 'factory'];
+var availableTypes = ['component', 'directive', 'factory'];
 
-var controller = require('./generators/controller.js');
 var component = require('./generators/component.js');
 var directive = require('./generators/directive.js');
 var factory = require('./generators/factory.js');
@@ -24,9 +23,6 @@ program
     console.log(chalk.bold.cyan('Generating ' + type + '...'));
 
     switch (type) {
-      case 'controller':
-        controller.generate(name);
-        break;
       case 'component':
         component.generate(name);
         break;
@@ -48,7 +44,6 @@ function throwUnknownType(type) {
   console.log(chalk.yellow('-------------------------------------------'));
   console.log(chalk.yellow('nGen can generate the following file types:'));
   console.log(chalk.yellow('-------------------------------------------'));
-  console.log(chalk.yellow('controller'));
   console.log(chalk.yellow('component'));
   console.log(chalk.yellow('directive'));
   console.log(chalk.yellow('factory'));
