@@ -1,0 +1,23 @@
+{
+  "name": "@mwagz/ng-generate",
+  "version": "0.0.1",
+  "description": "A generator for AngularJS 1.6. Generates a number of different files based on the style guide preferences as defined by John Papa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwagz/ng-generate.git"
+  },
+  "keywords": [
+    "angularjs",
+    "generator"
+  ],
+  "author": "Matt Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwagz/ng-generate/issues"
+  },
+  "homepage": "https://github.com/mwagz/ng-generate#readme"
+}
