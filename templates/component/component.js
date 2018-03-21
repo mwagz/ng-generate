@@ -1,33 +1,33 @@
 exports.template = function(name) {
   return (
     '(function() {' +
-    '\n\t\'use strict\';' +
+    '\n  \'use strict\';' +
     '\n' +
-    '\n\tangular.module(\'mobi.' + name.camel + '\', [])' +
-    '\n\t\t.component(\'' + name.camel + '\', {' +
-    '\n\t\t\ttemplateUrl: \'angular/mobi/components/' + name.standard + '/' + name.standard + '.html\',' +
-    '\n\t\t\tcontroller: ' + name.capped + 'Controller,' +
-    '\n\t\t\tbindings: {}' +
-    '\n\t\t});' +
+    '\n  angular.module(\'mobi.' + name.camel + '\', [])' +
+    '\n    .component(\'' + name.camel + '\', {' +
+    '\n      templateUrl: \'angular/mobi/components/' + name.standard + '/' + name.standard + '.html\',' +
+    '\n      controller: ' + name.capped + 'Controller,' +
+    '\n      bindings: {}' +
+    '\n    });' +
     '\n' +
-    '\n\t' + name.capped + 'Controller.$inject = [];' +
+    '\n  ' + name.capped + 'Controller.$inject = [];' +
     '\n' +
-    '\n\tfunction ' + name.capped + 'Controller() {' +
-    '\n\t\tvar vm = this;' +
+    '\n  function ' + name.capped + 'Controller() {' +
+    '\n    var vm = this;' +
     '\n' +
-    '\n\t\t// Scope Variables' +
+    '\n    // Scope Variables' +
     '\n\n' +
-    '\n\t\t// Scope Functions' +
+    '\n    // Scope Functions' +
     '\n\n' +
-    '\n\t\t// Lifecycle Hooks' +
-    '\n\t\tvm.$onInit = onInit;' +
+    '\n    // Lifecycle Hooks' +
+    '\n    vm.$onInit = onInit;' +
     '\n' +
-    '\n\t\t////////////////////////' +
+    '\n    ////////////////////////' +
     '\n' +
-    '\n\t\tfunction onInit() {' +
+    '\n    function onInit() {' +
     '\n' +
-    '\n\t\t}' +
-    '\n\t}' +
+    '\n    }' +
+    '\n  }' +
     '\n})();'
   );
 }
