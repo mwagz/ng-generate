@@ -1,6 +1,7 @@
 ## Currently, this is not built for anything outside of the MOBI Organization.
 
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/a8a75bafe6855f86415a/maintainability)](https://codeclimate.com/github/mwagz/ng-generate/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a8a75bafe6855f86415a/test_coverage)](https://codeclimate.com/github/mwagz/ng-generate/test_coverage)
 
 # ng-generate
 
@@ -30,7 +31,7 @@ If you're currently in the `my-project` directory and you generate a component c
 ```
 /my-project
   /angular
-    /components
+    /componentsgc
     /services
     /directives
   /components
