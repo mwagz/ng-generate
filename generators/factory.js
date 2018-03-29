@@ -11,7 +11,7 @@ var factory = require('../templates/factory/factory.js');
 var spec = require('../templates/factory/factory.spec.js');
 
 var formattedName;
-var location = 'lib/assets/javascripts/angular/mobi/services/';
+var location = process.cwd() + '/services/';
 var completed = [];
 
 exports.generate = function(name) {
