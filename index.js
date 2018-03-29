@@ -8,14 +8,9 @@ var directive = require('./generators/directive.js');
 var factory = require('./generators/factory.js');
 
 program
-  .version('0.0.1', '-v, --version')
+  .version('0.0.5', '-v, --version')
   .command('generate [type] [name]')
   .action(function (type, name) {
-    if (process.cwd().indexOf('pie') === -1) {
-      console.log(chalk.bold.red('**ERROR** Must be in the PIE directory'));
-      process.exit();
-    }
-
     if (availableTypes.indexOf(type) === -1) {
       throwUnknownType(type);
     }

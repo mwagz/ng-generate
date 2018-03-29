@@ -12,7 +12,7 @@ var component = require('../templates/component/component.js');
 var spec = require('../templates/component/component.spec.js');
 
 var formattedName;
-var location = 'lib/assets/javascripts/angular/mobi/components/';
+var location = process.cwd() + '/components/';
 var completed = [];
 
 exports.generate = function(name) {

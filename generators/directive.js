@@ -12,7 +12,7 @@ var factory = require('../templates/directive/directive.js');
 var spec = require('../templates/directive/directive.spec.js');
 
 var formattedName;
-var location = 'lib/assets/javascripts/angular/mobi/directives/';
+var location = process.cwd() + '/directives/';
 var completed = [];
 
 exports.generate = function(name) {
