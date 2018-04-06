@@ -8,9 +8,11 @@ var directive = require('./generators/directive.js');
 var factory = require('./generators/factory.js');
 
 program
-  .version('0.0.5', '-v, --version')
+  .version('0.0.6', '-v, --version')
   .command('generate [type] [name]')
-  .action(function (type, name) {
+  .option('-s, --spec', 'Generate spec only')
+  .option('-nt, --no-template', 'Generate without a template')
+  .action(function (type, name, options) {
     if (availableTypes.indexOf(type) === -1) {
       throwUnknownType(type);
     }
@@ -19,13 +21,13 @@ program
 
     switch (type) {
       case 'component':
-        component.generate(name);
+        component.generate(name, options);
         break;
       case 'directive':
-        directive.generate(name);
+        directive.generate(name, options);
         break;
       case 'factory':
-        factory.generate(name);
+        factory.generate(name, options);
         break;
     }
   });

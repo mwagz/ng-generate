@@ -14,7 +14,7 @@ var formattedName;
 var location = process.cwd() + '/services/';
 var completed = [];
 
-exports.generate = function(name) {
+exports.generate = function(name, options) {
   formattedName = namecase.format(name);
 
   // Does directory exist?
@@ -39,7 +39,9 @@ exports.generate = function(name) {
             console.log(chalk.red('Process Exiting. Factory generation failed.'));
             process.exit();
           } else {
-            generateFile('.factory.js', factory.template(formattedName));
+            if (!options.spec) {
+              generateFile('.factory.js', factory.template(formattedName));
+            }
             generateFile('.factory.spec.js', spec.template(formattedName));
           }
         });
@@ -71,8 +73,13 @@ exports.generate = function(name) {
   }
 
   function finished() {
-    if (completed.length === 2) {
+    if (completed.length === 2 && !options.spec) {
       console.log(chalk.green.bold('Finished! Please add mobi.' + formattedName.camel + ' to your module manifest files.'));
+      process.exit();
+    }
+
+    if (completed.length === 1 && options.spec) {
+      console.log(chalk.green.bold('Finished adding spec!'));
       process.exit();
     }
   }

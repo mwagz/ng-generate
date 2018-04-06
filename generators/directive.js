@@ -15,7 +15,7 @@ var formattedName;
 var location = process.cwd() + '/directives/';
 var completed = [];
 
-exports.generate = function(name) {
+exports.generate = function(name, options) {
   formattedName = namecase.format(name);
 
   // Does directory exist?
@@ -40,8 +40,10 @@ exports.generate = function(name) {
             console.log(chalk.red('Process Exiting. Directive generation failed.'));
             process.exit();
           } else {
-            generateFile('.html', html.template(formattedName));
-            generateFile('.directive.js', factory.template(formattedName));
+            if (!options.spec) {
+              generateFile('.html', html.template(formattedName));
+              generateFile('.directive.js', factory.template(formattedName));
+            }
             generateFile('.directive.spec.js', spec.template(formattedName));
           }
         });
@@ -75,6 +77,11 @@ exports.generate = function(name) {
   function finished() {
     if (completed.length === 2) {
       console.log(chalk.green.bold('Finished! Please add mobi.' + formattedName.camel + ' to your module manifest files.'));
+      process.exit();
+    }
+
+    if (completed.length === 1 && options.spec) {
+      console.log(chalk.green.bold('Finished adding spec!'));
       process.exit();
     }
   }

@@ -15,7 +15,7 @@ var formattedName;
 var location = process.cwd() + '/components/';
 var completed = [];
 
-exports.generate = function(name) {
+exports.generate = function(name, options) {
   formattedName = namecase.format(name);
 
   // Does directory exist?
@@ -34,9 +34,13 @@ exports.generate = function(name) {
       if (stats === undefined) {
         fs.mkdir(expectedDir);
 
-        generateFile('.component.js', component.template(formattedName));
-        generateFile('.component.spec.js', spec.template(formattedName));
-        generateFile('.html', html.template());
+        if (!options.spec) {
+          generateFile('.component.js', component.template(formattedName));
+          generateFile('.component.spec.js', spec.template(formattedName));
+          generateFile('.html', html.template());
+        } else {
+          generateFile('.component.spec.js', spec.template(formattedName));
+        }
       }
     });
   }
@@ -61,8 +65,13 @@ exports.generate = function(name) {
   }
 
   function finished() {
-    if (completed.length === 3) {
+    if (completed.length === 3 && !options.spec) {
       console.log(chalk.green.bold('Finished! Please add mobi.' + formattedName.camel + ' to your module manifest files.'));
+      process.exit();
+    }
+
+    if (options.spec && completed.length === 1) {
+      console.log(chalk.green.bold('Finished adding spec!'));
       process.exit();
     }
   }
