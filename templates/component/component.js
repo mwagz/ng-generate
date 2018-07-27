@@ -1,6 +1,6 @@
 exports.template = function(name) {
   return (
-    '(function() {' +
+    '(function () {' +
     '\n  \'use strict\';' +
     '\n' +
     '\n  angular.module(\'mobi.' + name.camel + '\', [])' +
@@ -28,6 +28,7 @@ exports.template = function(name) {
     '\n' +
     '\n    }' +
     '\n  }' +
-    '\n})();'
+    '\n})();' +
+    '\n'
   );
 }
